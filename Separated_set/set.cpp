@@ -27,9 +27,11 @@ void TSet::merge_set(int a,int b){
 	int s2=search(b);
 	int r1=rank[s1];
 	int r2=rank[s2];
-	for(int i=0;i<size;i++){
-		if(s2==parent[i])
-			parent[i]=s1;}
+	int p=parent[b];
+	while(p!=b){
+	b=p;
+	p=parent[p];
+	}
 	if (r1<r2)
 		parent[s1]=s2;
 	else {
